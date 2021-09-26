@@ -1,0 +1,58 @@
+{% from 'macros/macros.html' import usuariosInfo %}
+{% from 'macros/macros.html' import modalErro %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/cadastro_despesas.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/macro.css') }}">    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <title>Cadastro de Despesas</title>
+</head>
+<body>
+    {{usuariosInfo(usuario)}}
+
+   {% if id_despesa == 0%}
+        <div class="container">
+            <div class="itens_form">
+                <h1>Cadastro de Despesas</h1>
+                <h3 class="nome_mes" id_ano="{{ano_id}}" id_mes="{{mes_id}}"><p class="p_nome_mes">{{nome_mes}}</p> - {{ano}}</h3>
+                <input class="placeholder-text" type="text" placeholder="Nome" name="nome" id="nome">
+                <input class="placeholder-text" type="number" placeholder="Valor em R$" name="valor" id="valor" onkeypress='return SomenteNumero(event)'>
+                <select class="placeholder-text"  placeholder="Valor" name="valor" id="pago">
+                    <option value="0">Quitado</option>
+                    <option value="1">Pendente</option>
+                </select>
+                <div class="botoes">
+                    <button onclick="RedirecionarDespesas()">Voltar</button>
+                    <button onclick="SalvarDespesa(false)">Salvar</button>
+                </div>
+            </div>   
+        </div>
+    {% else %}
+    <div class="container">
+        <div class="itens_form">
+            <h1>Edição de Despesas</h1>
+            <h3 class="nome_mes" id_ano="{{ano_id}}" id_mes="{{mes_id}}"><p class="p_nome_mes">{{nome_mes}}</p> - {{ano}}</h3>
+            <input class="placeholder-text" type="text" placeholder="Nome" name="nome" id="nome" value="{{despesa.NOME}}" id_despesa="{{despesa.ID}}">
+            <input class="placeholder-text" type="number" placeholder="Valor" name="valor" id="valor" value="{{despesa.VALOR}}" onkeypress='return SomenteNumero(event)'>
+            <select class="placeholder-text"  placeholder="Valor" name="valor" id="pago">
+                {%if despesa.PAGO == 0 %}
+                     <option value="0">Quitado</option>
+                {% else%}
+                     <option value="1">Pendente</option>
+                {% endif %}  
+                <option value="0">Quitado</option>
+                <option value="1">Pendente</option>
+            </select>
+            <button onclick="SalvarDespesa(true)">Salvar</button>
+        </div>   
+    </div>
+    {% endif %}     
+    {{modalErro(mensagem)}}
+   <script src="{{ url_for('static',filename='js/cadastrar_despesa.js') }}"></script>
+   <script src="{{ url_for('static',filename='js/macro.js') }}"></script>
+   <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</body>
+</html>

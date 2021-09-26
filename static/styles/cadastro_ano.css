@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+}
+
+body{
+    background-color: #3F66CC;
+    font-family: 'Roboto Slab', serif;
+}
+h1{
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 36px;
+    color: white;
+}
+.container{
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 110px;
+    display: flex;
+    align-items: center;
+}
+.itens_form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.itens_form input, button{
+    height: 50px;
+    border: none;
+}
+.itens_form input{
+    background-color: #E5E5E5;  
+    margin-bottom: 20px;
+    border-radius: 3px;
+    text-indent: 10px;
+}
+.itens_form button{
+    background-color: #6757C8;
+    color: white;
+    font-size: 20px;
+}
+.itens_form button:hover{
+    background-color: #E5E5E5;
+    color: #6757C8;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+.placeholder-text::placeholder{
+    color: #A5A5A5;
+    font-size: 15px;
+    text-indent: 10px;
+}
+p{
+    color: white;
+    transform: translateY(12px);
+    font-size: 13px;
+    cursor: pointer;
+}
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+.modal{
+    border-radius: 8px;
+    width: 19%;
+    min-width: 300px;
+    height: 98px;
+    margin-top: 35px;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    color: #3F66CC;
+    font-weight: bold;
+}
+.modal button{
+    width: 70px;
+    height: 30px;
+    border: none;
+    background: #3F66CC;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    float: right;
+}
+.modal p{
+    margin-bottom: 33px;
+    color: #3F66CC;
+    font-size: 16px;
+    color: red;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+.botoes button {
+    background-color: #6757C8;
+    color: white;
+    font-size: 16px;
+    width: 150px;
+    border-radius: 3px !important;
+    height: 40px;
+}

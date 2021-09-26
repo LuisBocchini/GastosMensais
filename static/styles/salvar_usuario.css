@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+}
+
+body{
+    background-color: #3F66CC;
+    font-family: 'Roboto Slab', serif;
+}
+h1{
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 36px;
+    color: white;
+}
+.container{
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 170px;
+    display: flex;
+    align-items: center;
+}
+.itens_form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.itens_form input, button{
+    height: 50px;
+    border: none;
+}
+.itens_form input{
+    background-color: #E5E5E5;  
+    margin-bottom: 20px;
+    border-radius: 3px;
+    text-indent: 10px;
+}
+.itens_form button{
+    background-color: #6757C8;
+    color: white;
+    font-size: 20px;
+}
+.itens_form button:hover{
+    background-color: #E5E5E5;
+    color: #6757C8;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+.placeholder-text::placeholder{
+    color: #A5A5A5;
+    font-size: 15px;
+    text-indent: 10px;
+}
+p{
+    color: white;
+    transform: translateY(12px);
+    font-size: 13px;
+    cursor: pointer;
+}
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+.botoes button{
+    background-color: #6757C8;
+    color: white;
+    font-size: 16px;
+    width: 150px;
+    border-radius: 3px !important;
+    height: 40px;
+}

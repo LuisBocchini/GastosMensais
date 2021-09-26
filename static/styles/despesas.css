@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-shadow: 0;
+}
+
+body{
+    background-color: #3F66CC;
+    font-family: 'Roboto Slab', serif;
+}
+h1{
+    text-align: center;
+    margin-top: 40px;
+    margin-top: 80px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+h2{
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: end;
+    /* transform: translateY(21px); */
+    margin-right: 40px;
+}
+.mes_ano{
+    display: flex;
+    margin: 0 auto;
+    width: 85%;   
+}
+.nome_mes{
+    font-size: 20px;
+    width: 85%;
+    margin: 0 auto;
+    color: #6757C8;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    display: flex;
+}
+.p_nome_mes{
+    margin-right: 8px;
+}
+.container{
+    width: 75%;
+    height: auto;
+    background: #E3E3E3;
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 85%;
+    margin: 0 auto;
+    background-color: white;
+  }
+  
+  td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+  }
+  td{
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: #000000;
+    
+  }
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */
+
+.header_table{
+    background: #6757C8;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+}
+.header_table th{
+    padding: 3px;
+    font-size: 20px;
+    text-align: center;
+}
+.botoes{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.botoes button{
+    width: 134px;
+    height: 40px;
+    border: none;
+    background: #6757C8;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+.botoes button:hover{
+    background-color: #3F66CC;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+.voltar a{
+    text-decoration: none;
+    color: white;
+}
+img{
+    cursor: pointer;
+}
+.modal-container{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+.modal{
+    border-radius: 8px;
+    width: 19%;
+    min-width: 300px;
+    height: 98px;
+    margin-top: 35px;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 17px;
+    color: #3F66CC;
+    font-weight: bold;
+}
+.modal button{
+    width: 117px;
+    height: 30px;
+    border: none;
+    background: #3F66CC;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    margin-left: 10px !important;
+}
+.modal p{
+    margin-bottom: 33px;
+}

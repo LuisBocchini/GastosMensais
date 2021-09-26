@@ -1,0 +1,68 @@
+{% from 'macros/macros.html' import usuariosInfo %}
+{% from 'macros/macros.html' import modalErro %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/styles/painel.css">
+    <link rel="stylesheet" href="../../static/styles/macro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <title>Painel</title>
+</head>
+<body>
+    {{usuariosInfo(usuario)}}
+    <h1>Gastos Mensais</h1>
+    <div class="container" id={{usuario.ID}}>
+        <div class="anos">
+            {%for a in anos %}
+            <div class="ano" id="{{a.ID}}" value={{a.NUMERO}}><span>{{a.NUMERO}}</span>
+                <div class="acoes">
+                    <img src="../../static/img/seta.png" class="seta_ano" onclick="AbrirMeses(this)">
+                    <img src="../../static/img/editar_ano.png" alt="" srcset="" onclick="CadastroAnosFormulario(this)">
+                    <img src="../../static/img/delete_painel.png" alt="" srcset="" onclick="AbrirModal(this)">
+                 
+                </div>
+                
+            </div>  
+            <div class="meses" id={{a.NUMERO}} ano_id="{{a.ID}}" >
+                <div class="mes" onclick="DespesasMes(this)" id="1" style="margin-top: 25px;">Janeiro</div>
+                <div class="mes" onclick="DespesasMes(this)" id="2">Fevereiro</div>
+                <div class="mes" onclick="DespesasMes(this)" id="3">Março</div>
+                <div class="mes" onclick="DespesasMes(this)" id="4">Abril</div>
+                <div class="mes" onclick="DespesasMes(this)" id="5">Maio</div>
+                <div class="mes" onclick="DespesasMes(this)" id="6">Junho</div>
+                <div class="mes" onclick="DespesasMes(this)" id="7">Julho</div>
+                <div class="mes" onclick="DespesasMes(this)" id="8">Agosto</div>
+                <div class="mes" onclick="DespesasMes(this)" id="9">Setembro</div>
+                <div class="mes" onclick="DespesasMes(this)" id="10">Outubro</div>
+                <div class="mes" onclick="DespesasMes(this)" id="11">Novembro</div>
+                <div class="mes" onclick="DespesasMes(this)" id="12">Dezembro</div>
+            </div>
+            {% endfor %}
+            <div class="botoes">
+                <button onclick="RedirecionarLogin()">Voltar</button>
+                <button onclick="CadastroAnosFormulario(0)">Adicionar Ano</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="" id="modal-pergunta">
+        <div class="modal">
+            <p id="mensagem">Deseja realizar esta operação?</p>
+            <button id="btnNão" onclick="FecharModalPergunta()">Não</button>
+            <button id="btnSim" onclick="ExcluirAno()" style="margin-right: 10px;">Sim</button>
+        </div>
+   
+    </div>
+
+    {{modalErro(mensagem)}}
+
+<script src="../../static/js/painel.js"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+<script src="{{ url_for('static',filename='js/macro.js') }}"></script>
+
+</body>
+</html>

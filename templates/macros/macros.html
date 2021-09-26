@@ -1,0 +1,25 @@
+{% macro usuariosInfo(usuario) %}
+    <div class="itens_usuarios">
+        <img src="{{ url_for('static',filename='img/usuario.png') }}">
+        <h2 id_usuario={{usuario.ID}} nome_usuario="{{usuario.NOME}}"> {{usuario['NOME']}} <img src="{{ url_for('static',filename='img/seta.png') }}" class="seta" onclick="AbrirOpcoesUsuario()" ></h2>
+
+    </div>
+    <div class="opcoes_usuarios">
+        <ul>
+            <li><h3 onclick="EditarUsuario()">Editar</h3></li>
+            <li><h3 onclick="RedirecionarPainel(null)">Painel</h3></li>
+            <li><h3 onclick="RedirecionarLogin()">Sair</h3></li>
+        </ul>
+    </div>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/macro.css') }}">
+    <script src="{{ url_for('static',filename='js/macro.js') }}"></script>
+{% endmacro %}
+
+{% macro modalErro(mensagem) %}
+    <div class="modal-container" style="display: none;">
+        <div class="modal">
+            <p class="mensagem">mensagem</p>
+            <button id="btnFechar"onclick=FecharModal()>Fechar</button>
+        </div>
+    </div>
+{% endmacro %}

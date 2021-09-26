@@ -1,0 +1,55 @@
+{% from 'macros/macros.html' import usuariosInfo %}
+{% from 'macros/macros.html' import modalErro %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/styles/salvar_usuario.css">
+    <link rel="stylesheet" href="../../static/styles/macro.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <title>Cadastro de usuários</title>
+</head>
+<body>
+    {% if usuario_id == 0%}
+        <div class="container">
+            <div class="itens_form"  autocomplete="off">
+                <h1>Cadastro de Usuários</h1>
+                <input class="placeholder-text" type="text" placeholder="E-mail" name="email" id="email" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();">
+                <input class="placeholder-text" type="text" placeholder="Nome" name="nome" id="nome">
+                <input class="placeholder-text" type="password" placeholder="Senha" name="senha" id="senha">
+                <input class="placeholder-text" type="password" placeholder="Confirme a senha" name="ConfirmeSenha" id="ConfirmeSenha">
+                <div class="botoes">
+                    <button onclick="RedirecionarLogin()">Voltar ao login</button>
+                    <button onclick="SalvarUsuario(false)">Salvar</button>
+                </div>    
+            </div>     
+        </div>
+        {{modalErro(mensagem)}}
+    {% else %}
+            {{usuariosInfo(usuario)}}
+            <div class="container">
+                <div class="itens_form" autocomplete="off">
+                <h1>Edição de Usuário</h1>
+                <input class="placeholder-text" type="text" placeholder="E-mail" name="email" id="email" value="{{usuario.EMAIL}}" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();">
+                <input class="placeholder-text" type="text" placeholder="Nome" name="nome" id="nome" value="{{usuario.NOME}}">
+                <input class="placeholder-text" type="password" placeholder="Senha Atual" name="senhaAtual" id="senhaAtual" value="" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();">
+                <input class="placeholder-text" type="password" placeholder="Nova Senha" name="novaSenha" id="novaSenha" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();">
+        
+                <input class="placeholder-text" type="password" placeholder="Confirme a nova senha" name="ConfirmeNovaSenha" id="ConfirmeNovaSenha" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');this.select();">
+                <div class="botoes">
+                    <button onclick="RedirecionarPainel(null)">Voltar ao painel</button>
+                    <button onclick="SalvarUsuario(true)">Salvar</button>
+                </div>    
+            </div>
+            </div>
+            {{modalErro(mensagem)}}
+    {% endif %}  
+ <script src="../../static/js/login.js"></script>  
+ <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+ <script src="{{ url_for('static',filename='js/salvar_usuario.js') }}"></script>
+ <script src="{{ url_for('static',filename='js/macro.js') }}"></script>
+</body>
+</html>

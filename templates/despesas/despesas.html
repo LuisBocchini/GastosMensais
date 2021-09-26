@@ -1,0 +1,67 @@
+{% from 'macros/macros.html' import usuariosInfo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/despesas.css') }}">
+    <title>Despesas</title>
+</head>
+<body>
+    {{usuariosInfo(usuario)}}
+    <h1>Gastos Mensais</h1>
+    <div class="container">
+            <h3 class="nome_mes" id_ano="{{ano_id}}" id_mes="{{mes_id}}"><p class="p_nome_mes">{{nome_mes}}</p> {{numero_ano}}</h3>
+        <table class="tabela_despesas">
+            <tr class="header_table">
+                <th>Despesa</th>
+                <th>Valor</th>
+                <th>Quitado?</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+            </tr>
+            {%for despesa in despesas%}
+            <tr id="{{despesa.ID}}">
+                <td>{{despesa.NOME}}</td>
+                <td>R$ {{despesa.VALOR}},00</td>
+                {%if despesa.PAGO == 0%}
+                    <td>Quitado</td>
+                {% else %}
+                    <td>Pendente</td>
+                {% endif %}
+                <td><img src="{{ url_for('static',filename='img/editar.png') }}" style="transform: translateY(5px);" onclick="CadastroDespesas(this)"></td>
+                <td><img src="{{ url_for('static',filename='img/delete.png') }}" style="transform: translateY(5px);" onclick="AbrirModal(this)"></td>
+            </tr>
+            {% endfor %}
+          </table>
+          <table class="tabela_despesas">
+            <tr class="total">
+                <th>Total gasto no mês de Janeiro: R$ {{total}},00</th>
+            </tr>
+          </table>
+
+          <br>
+
+          <div class="botoes">
+            <button class="voltar"onclick=RedirecionarPainel(null)><a>Voltar</a></button>
+            <div class="botoes_direita">
+                <button style="width: 150px;" onclick="CadastroDespesas(false)">Adicionar despesa</button>
+            </div>
+          </div>
+    </div>
+
+    <div class="modal-container">
+        <div class="modal">
+            <p>Deseja realizar esta operação?</p>
+            <button id="btnNao">Não</button>
+            <button id="btnSim">Sim</button>   
+        </div>
+       
+    </div>
+
+<script src="{{ url_for('static',filename='js/despesas.js') }}"></script>
+<script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</body>
+</html>

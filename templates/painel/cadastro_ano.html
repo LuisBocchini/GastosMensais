@@ -1,0 +1,49 @@
+{% from 'macros/macros.html' import usuariosInfo %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/cadastro_ano.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">
+    <title>Cadastro ano</title>
+</head>
+<body>
+    {{usuariosInfo(usuario)}}
+    {% if ano == 0%} 
+   <div class="container">
+       <div class="itens_form">
+        <h1>Cadastro de anos</h1>
+        <input class="placeholder-text" type="number" placeholder="Informe o numero do ano" name="numero" id="0" value="0">
+        <div class="botoes">
+            <button onclick="RedirecionarPainel(null)">Voltar</button>
+            <button onclick="SalvarAno()">Salvar</button>
+        </div>
+       </div> 
+   </div>
+   {% else %}
+   <div class="container">
+       <div class="itens_form">
+       <h1>Edição de anos</h1>
+       <input class="placeholder-text" type="number" placeholder="Informe o numero do ano" name="numero" id="{{ano.id}}" value="{{ano.numero}}">
+       <div class="botoes">
+            <button onclick="RedirecionarPainel(null)">Voltar</button>
+            <button onclick="SalvarAno()">Salvar</button>
+      </div>
+       </div>
+    </div>
+    {% endif %}  
+
+   <div class="modal-container">
+    <div class="modal">
+        <p class="mensagem"></p>
+        <button id="btnFechar"onclick=FecharModal()>Fechar</button>
+    </div>
+   
+</div>
+  
+ <script src="{{ url_for('static',filename='js/painel.js') }}"></script>  
+ <script src="{{ url_for('static',filename='js/main.js') }}"></script>
+</body>
+</html>
